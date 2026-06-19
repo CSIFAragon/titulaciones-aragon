@@ -63,8 +63,8 @@
     <script>
         let datosDocentes = [];
 
-        // Leer el archivo JSON local automáticamente
-        fetch('mapeo_completo_docente.json')
+        // Leer el archivo JSON desde tu servidor de GitHub Pages automáticamente
+        fetch('https://csifaragon.github.io/titulaciones-aragon/mapeo_completo_docente.json')
             .then(response => response.json())
             .then(data => {
                 datosDocentes = data.cuerpos_docentes;
@@ -72,7 +72,7 @@
             })
             .catch(error => {
                 document.getElementById('contenedor-docente').innerHTML = `
-                    <div class="alert alert-danger"><i class="fa-solid fa-triangle-exclamation me-2"></i> Error al cargar el archivo JSON. Asegúrate de estar usando un servidor local.</div>`;
+                    <div class="alert alert-danger"><i class="fa-solid fa-triangle-exclamation me-2"></i> Error al cargar el catálogo de datos. Por favor, refresca la página.</div>`;
                 console.error("Error cargando el JSON:", error);
             });
 
